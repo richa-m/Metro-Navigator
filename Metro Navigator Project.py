@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
 class Graph:
     def __init__(self, vertices):
         self.vertices = vertices
@@ -71,16 +65,6 @@ class Graph:
             current = parent[current]
 
         return distance[dest], path
-
-
-
-
-
-
-
-
-
-
 def getsvals():
 
     Depart = clicked_depart.get()
@@ -146,77 +130,3 @@ def getsvals():
     
     result_frame.grid(row=2, column=0, padx=7, pady=5)
     f1.grid_forget()
-
-    
-
-
-
-
-
-from tkinter import *
-from PIL import ImageTk, Image  
-
-root = Tk()
-root.geometry("800x780")
-root.maxsize(800, 780)
-root.title("Metro Navigator")
-root.config(background="#333333")
-root.wm_iconbitmap("C:\\Users\\Richa\\OneDrive\\Desktop\\DRDO INTER\\metro.ico")
-
-# Load the image
-image = Image.open("C:\\Users\\richa\\OneDrive\\Desktop\\DRDO INTER\\pexels-pixabay-302428 (2).jpg")
-photo = ImageTk.PhotoImage(image)
-label = Label(image=photo, width=750, height=290)
-label.grid(row=0, column=0, columnspan=2, padx=20, pady=20)
-
-l1 = Label(text="Travel More, Worry Less", bg="#333333", fg="#FFD858", padx=40, pady=50, font="Helvetica 24 bold")
-l1.grid(row=1, column=0, columnspan=2)
-
-f1 = Frame(root, bg="#333333")
-f1.grid(row=2, column=0, columnspan=2, padx=20, pady=10)
-
-Depart = Label(f1, text="Depart From:", fg="#FFD858", bg="#333333", font="Helvetica 16 bold")
-Depart.grid(row=0, column=0, padx=7, pady=5)
-
-Destination = Label(f1, text="Destination:", fg="#FFD858", bg="#333333", font="Helvetica 16 bold")
-Destination.grid(row=1, column=0, padx=7, pady=7)
-
-options = ["Mandi House", "Bararkhamba Road", "Rajiv Chowk", "Patel Chowk", "Central Secretariat", "Udyog Bhawan",
-           'Lok Kalyan Marg', 'Por Bagh', "Dilli Haat-INA", "South Extension", "Lajpat Nagar", "Jangpura",
-           "Jawaharlal Nehru Stadium", "Khan Market","Janpath"]
-
-clicked_depart = StringVar()
-clicked_depart.set(options[0])
-Depart_drop = OptionMenu(f1, clicked_depart, *options)
-Depart_drop.config(bg="#333333", fg="#FFD858",highlightthickness=0)
-Depart_drop.grid(row=0, column=1, padx=7, pady=5)
-
-clicked_destin = StringVar()
-clicked_destin.set(options[0])
-Destin_drop = OptionMenu(f1, clicked_destin, *options)
-Destin_drop.config(bg="#333333", fg="#FFD858",highlightthickness=0)
-Destin_drop.grid(row=1, column=1, padx=7, pady=5)
-
-
-def on_hover(event):
-    b1.config(bg="white")
-
-def on_leave(event):
-    b1.config(bg="#FFD858")
-
-b1 = Button(f1, bg="#FFD858", fg="#333333", text="Search", command=getsvals, font="Helvetica 16 bold", padx=10, pady=5,
-            relief=SUNKEN, borderwidth=5)
-b1.grid(row=2, column=0, columnspan=2, padx=100, pady=40)
-
-b1.bind("<Enter>", on_hover)
-b1.bind("<Leave>", on_leave)
-
-result_frame = Frame(root, bg="#333333")
-result_frame.grid(row=3, column=0, columnspan=2, padx=50, pady=10, sticky="w")
-result_frame.grid_forget()
-
-result_text = Text(result_frame, height=10, width=60, font='Helvetica 12', bg="#FFD858")
-result_text.pack(padx=70, pady=20)
-
-root.mainloop()
-
