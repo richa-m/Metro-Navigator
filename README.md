@@ -56,7 +56,7 @@ MetroNavigator/
 
 🚀 **Installation & Running**
 1. Clone this repository
-git clone https://github.com/your-username/MetroNavigator.git
+git clone https://github.com/richa-m/MetroNavigator.git
 cd MetroNavigator
 
 2. Install dependencies
